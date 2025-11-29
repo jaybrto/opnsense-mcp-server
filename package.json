@@ -1,17 +1,17 @@
 {
-  "name": "@richard-stovall/opnsense-mcp-server",
-  "version": "0.5.3",
+  "name": "@jaybrto/opnsense-mcp-server",
+  "version": "1.0.3",
   "description": "Modular MCP server for OPNsense firewall management - 88 tools providing access to 2000+ methods",
   "main": "./index.js",
   "module": "./index.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richard-stovall/opnsense-mcp-server.git"
+    "url": "git+https://github.com/jaybrto/opnsense-mcp-server.git"
   },
-  "homepage": "https://github.com/richard-stovall/opnsense-mcp-server#readme",
+  "homepage": "https://github.com/jaybrto/opnsense-mcp-server#readme",
   "bugs": {
-    "url": "https://github.com/richard-stovall/opnsense-mcp-server/issues"
+    "url": "https://github.com/jaybrto/opnsense-mcp-server/issues"
   },
   "bin": {
     "opnsense-mcp-server": "index.js"
@@ -35,7 +35,7 @@
     "automation",
     "typescript"
   ],
-  "author": "Richard Stovall",
+  "author": "Jay Brto",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.1",
@@ -52,6 +52,5 @@
     "tools-generated.json",
     "README.md",
     "LICENSE"
-  ],
-  "packageManager": "yarn@4.9.2"
+  ]
 }

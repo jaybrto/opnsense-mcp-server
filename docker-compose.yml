@@ -1,0 +1,31 @@
+services:
+  opnsense-mcp:
+    build: .
+    ports:
+      - "${MCP_PORT:-3000}:3000"
+    environment:
+      # Required: OPNsense connection
+      - OPNSENSE_URL=${OPNSENSE_URL}
+      - OPNSENSE_API_KEY=${OPNSENSE_API_KEY}
+      - OPNSENSE_API_SECRET=${OPNSENSE_API_SECRET}
+
+      # Optional: SSL verification (set to 'false' for self-signed certs)
+      - OPNSENSE_VERIFY_SSL=${OPNSENSE_VERIFY_SSL:-false}
+
+      # Optional: Plugin tools
+      - INCLUDE_PLUGINS=${INCLUDE_PLUGINS:-false}
+
+      # Optional: Tool filtering (reduce context window usage)
+      - TOOLS_INCLUDE=${TOOLS_INCLUDE:-}
+      - TOOLS_EXCLUDE=${TOOLS_EXCLUDE:-}
+
+      # SSE transport settings (pre-configured)
+      - MCP_TRANSPORT=sse
+      - PORT=3000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
